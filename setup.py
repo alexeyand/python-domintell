@@ -5,7 +5,7 @@ with open('README.md') as file:
 
 setup(name='python-domintell',
       version='0.0.17',
-      url='https://github.com/shamanenas/python-domintell',
+      url='https://github.com/alexeyand/python-domintell',
       license='MIT',
       author='Zilvinas Binisevicius',
       install_requires=["pyserial"],
