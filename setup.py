@@ -4,12 +4,12 @@ with open('README.md') as file:
     long_description = file.read()
 
 setup(name='python-domintell',
-      version='0.0.17',
+      version='0.0.18',
       url='https://github.com/alexeyand/python-domintell',
       license='MIT',
-      author='Zilvinas Binisevicius',
-      install_requires=["pyserial"],
-      author_email='zilvinas@binis.me',
+      author='Alexey And',
+      install_requires=["pyserial", "chardet"],
+      author_email='alex@icona.one',
       description="Python Library for the Domintell protocol",
       long_description=long_description,
       long_description_content_type="text/markdown",
