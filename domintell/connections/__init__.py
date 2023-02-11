@@ -128,10 +128,18 @@ class UDPConnection(domintell.DomintellConnection):
 
         # get the address from a <host>:<port> format
         addr = device.split(':')
-        self._addr = (addr[0], int(addr[1]))
+       
+        #addr = ['10.200.1.213'.encode(), int('6029')]
+
+        self._addr = (addr[0].encode(), int(addr[1]))
         try:
-            self._socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
+            #self._socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
+            self._socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             # self._socket.connect( addr )
+
+            self._socket.connect((self._addr))
+
+
         except:
             self.logger.error("Could not open socket, \
                               no messages are read or written to the bus")
@@ -187,10 +195,12 @@ class UDPConnection(domintell.DomintellConnection):
             (message, callback) = self._write_queue.get(block=True)
             self.logger.info("Sending message to UDP: %s", str(message))
             self.logger.debug("Sending controll message:  %s", message.to_string())
-            if message.is_binary():
-                self._socket.sendto(message.to_string(), self._addr)
-            else:
-                self._socket.sendto(bytes(message.to_string(),'ascii'), self._addr)
+            #if message.is_binary():
+            #    self._socket.sendto(message.to_string(), self._addr)
+            #else:
+            #    self._socket.sendto(bytes(message.to_string(),'ascii'), self._addr)
+            
+            self._socket.sendto(bytes(message.to_string(),'ascii'), self._addr)
             time.sleep(self.SLEEP_TIME)
             if callback:
                 callback()
