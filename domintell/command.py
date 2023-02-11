@@ -41,13 +41,13 @@ class Command(domintell.Message):
         if channel == None or channel == -1:
             # module without channel
             if value != None:
-                return "{:3}{:>6}{}{}".format(module_type, point_id, data_type, value)
-            return "{:3}{:>6}{}".format(module_type, point_id, data_type)
+                return "DOMINTELL:{:3}{:>6}{}{}".format(module_type, point_id, data_type, value)
+            return "DOMINTELL:{:3}{:>6}{}".format(module_type, point_id, data_type)
         else:
             # normal multichannel module
             if value != None:
-                return "{:3}{:>8}{}{}".format(module_type, point_id, data_type, value)
-            return "{:3}{:>8}{}".format(module_type, point_id, data_type)
+                return "DOMINTELL:{:3}{:>8}{}{}".format(module_type, point_id, data_type, value)
+            return "DOMINTELL:{:3}{:>8}{}".format(module_type, point_id, data_type)
 
     def to_string(self):
         """
