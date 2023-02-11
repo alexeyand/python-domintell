@@ -15,7 +15,9 @@ class LoginRequest(domintell.Command):
     def command(self):
         # TODO FIXME
         # return "LOGIN" + self._password
-        return self._password
+        #return self._password
+        #return 'DOMINTELL:'.encode() + self._password.encode()
+        return 'DOMINTELL:PING'
 
     def is_binary(self):
         return True
