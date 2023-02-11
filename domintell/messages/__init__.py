@@ -21,7 +21,7 @@ from domintell.messages.dio_status import GenericDIOStatusMessage
 from domintell.messages.dbir_status import DBIRStatusMessage
 from domintell.messages.dmr_status import DDMRStatusMessage
 from domintell.messages.ddim_status import DDIMStatusMessage
-from domintell.messages.din10v_status import DIN10VStatusMessage
+#from domintell.messages.din10v_status import DIN10VStatusMessage
 from domintell.messages.dism_status import DISM4StatusMessage
 from domintell.messages.dism_status import DISM8StatusMessage
 from domintell.messages.dmov_status import DMOVStatusMessage
