@@ -7,6 +7,7 @@ Port for Domintell
 """
 import logging
 import domintell
+#import chardet
 
 NORMAL_MODE = 0
 APP_INFO_MODE = 1
@@ -38,13 +39,20 @@ class DomintellParser(object):
         we will ignore shorter messages for now
         """
         
-        # data = data.decode('ascii').lstrip('\r\n ')
+        # data = data.decode('ascii').lstrip('\r\n')
         # my domintell version uses ascii for communication
         # FIXME need to eoncoding in config
-        data = data.decode('iso8859_13').lstrip('\r\n ')
-        if len(data) < 10:
+        #data = data.decode('ascii').lstrip('\r\n ')
+        try:
+            data = data.decode('windows-1251').encode('utf-8').decode('utf-8').lstrip('\r\n ')
+            if len(data) < 10:
+                return
+        except:
+            
+            errmesg = data
+            self.logger.warning("FUCK [%s]", errmesg)
             return
-
+ 
         message = self.parse(data)
         if isinstance(message, domintell.Message):
             self.controller.new_message(message)
@@ -84,6 +92,11 @@ class DomintellParser(object):
                 # TODO: Start timer, to reset mode if end packet is lost
                 # ..
                 return domintell.ControllMessage('APPINFO', data)
+
+        if module_type == 'RS2':
+            self.logger.warning("TYPE RS2")
+            return
+
         if module_type == 'END':
             # looks like we received APPINFO END message
             # check more data
@@ -124,4 +137,3 @@ class DomintellParser(object):
         return 1 in [c in str for c in set]
 
     
-
