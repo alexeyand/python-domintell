@@ -30,7 +30,7 @@ MODULE_DIRECTORY = {
     'LC3': { 'type': 'DLCD01', 'name': 'LCD panel', 'io': 'di'},
     'FAN': { 'type': 'DFAN01', 'name': 'Fan coil controller', 'io': 'do'},
     'DMR': { 'type': 'DMR01', 'name': 'Output card with 5 x 250 V/3 A monopolar relays.', 'io': 'do'},
-    'I10': { 'type': 'DIN10V01', 'name': '0 - 10Vdc input module', 'io': 'ai'},
+ #   'I10': { 'type': 'DIN10V01', 'name': '0 - 10Vdc input module', 'io': 'ai'},
     'SFE': { 'type': 'SFE', 'name': 'Atmosphere', 'io': 'unk'},
     'ZON': { 'type': 'ZON', 'name': 'Zone', 'io': 'unk'},
     'MEM': { 'type': 'MEM', 'name': 'Memo', 'io': 'unk'},
