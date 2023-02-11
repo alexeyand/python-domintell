@@ -7,7 +7,7 @@ Port for Domintell
 """
 import logging
 import domintell
-#import chardet
+import chardet
 
 NORMAL_MODE = 0
 APP_INFO_MODE = 1
