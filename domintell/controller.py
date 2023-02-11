@@ -48,10 +48,12 @@ class Controller(object):
         self.__subscribers = []
         self.__scan_callback = None
         self._modules = {}
-        if ":" in port:
-            self.connection = domintell.UDPConnection(port, self)
-        else:
-            self.connection = domintell.RS232Connection(port, self)
+        #if ":" in port:
+        #    self.connection = domintell.UDPConnection(port, self)
+        #else:
+        #    self.connection = domintell.RS232Connection(port, self)
+        self.connection = domintell.UDPConnection(port, self)
+
 
     def feed_parser(self, data):
         """
