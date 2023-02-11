@@ -100,10 +100,13 @@ class Module(object):
     def _on_info_message(self, message):
         if message.serialNumber == self.get_serial_number():
             ch = int(message.channel)
+            self.logger.info("CHANNEL: [%s]", ch)
             if ch > 0 and ch <= self.number_of_channels():
                 self._channel_names[ch] = message.name
                 self._channel_paths[ch] = message.path
                 self._chanel_ids[ch] = message.point_id
+            else:
+                return
 
     def number_of_channels(self):
         """
