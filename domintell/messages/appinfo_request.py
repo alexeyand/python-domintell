@@ -12,4 +12,7 @@ class AppInfoRequest(domintell.Command):
         domintell.Command.__init__(self, "_APPINFO_", "_APPINFO_")
 
     def command(self):
-        return "APPINFO"
+#        return "APPINFO"
+        return "DOMINTELL:APPINFO"
+#        return "DOMINTELL:PING"
+
